@@ -5,6 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\AdminController;
+<<<<<<< HEAD
+=======
+// routes/web.php
+// Route::get('/home.search_results', [HomeController::class, 'search']);
+
+
+>>>>>>> 2def6010
 
 route::get('/', [HomeController::class, 'home']);
 
@@ -62,5 +69,11 @@ route::get('delivered/{id}', [AdminController::class, 'delivered'])->middleware(
 
 
 
+<<<<<<< HEAD
 
 Route::get('/search', [HomeController::class, 'search'])->name('search');
+=======
+route::get('/home.search_results', [HomeController::class, 'search'])->name('home.search_results');
+
+// Route::get('/search', [HomeController::class, 'search'])->name('search');
+>>>>>>> 2def6010

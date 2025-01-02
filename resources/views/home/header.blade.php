@@ -25,6 +25,10 @@
     }
 </style>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2def6010
       <nav class="navbar navbar-expand-lg custom_nav-container ">
         <a class="navbar-brand" href="index.html">
           <span>
@@ -89,6 +93,7 @@
               </span>
             </a>
 
+<<<<<<< HEAD
             <div class="search-bar">
     <input
         type="text"
@@ -98,6 +103,13 @@
         onkeyup="searchProducts()"
     />
     <div id="search-results" class="dropdown-menu"></div>  
+=======
+            <input type="text" id="searchBox" placeholder="Search products..." autocomplete="off">
+<div id="searchResults"></div>
+
+
+
+>>>>>>> 2def6010
     
 </div>
             @endauth
@@ -109,6 +121,31 @@
         </div>
       </nav>
     </header>
+<<<<<<< HEAD
 
+=======
+    @include('home.search_results', ['products' => $product])
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#searchBox').on('keyup', function() {
+            var query = $(this).val();
+            if (query.length > 2) {  // Trigger the search after typing 3 characters
+                $.ajax({
+                    url: "{{ route('home.search_results') }}",
+                    method: 'GET',
+                    data: { query: query },
+                    success: function(response) {
+                        $('#searchResults').html(response).show();
+                    }
+                });
+            } else {
+                $('#searchResults').html('').hide();  // Hide results if query length is less than 3
+            }
+        });
+    });
+</script>
+    
+>>>>>>> 2def6010
 
     

@@ -26,4 +26,51 @@ $('.owl-carousel').owlCarousel({
             items: 6
         }
     }
+<<<<<<< HEAD
 })
+=======
+})
+
+// Fetch Contact Info
+fetch('/api/contact')
+    .then(response => response.json())
+    .then(data => {
+        document.querySelector('.info_link-box').innerHTML = `
+            <a href="#">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>${data.address}</span>
+            </a>
+            <a href="#">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>${data.phone}</span>
+            </a>
+            <a href="#">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>${data.email}</span>
+            </a>
+        `;
+    })
+    .catch(error => console.error('Error fetching contact info:', error));
+
+// Handle Form Submission
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = {
+        name: contactForm.querySelector('input[name="name"]').value,
+        email: contactForm.querySelector('input[name="email"]').value,
+        message: contactForm.querySelector('textarea[name="message"]').value,
+    };
+
+    fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+    })
+        .then(response => response.json())
+        .then(data => alert(data.message))
+        .catch(error => console.error('Error submitting contact form:', error));
+});
+>>>>>>> 2def6010

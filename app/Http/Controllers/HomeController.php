@@ -118,6 +118,7 @@ public function confirm_order(Request $request){
 
 
 public function search(Request $request)
+<<<<<<< HEAD
     {
         $query = $request->get('query');
 
@@ -127,4 +128,17 @@ public function search(Request $request)
         // Return a JSON response
         return response()->json($products);
     }
+=======
+{
+    $query = $request->get('query');
+    // part
+    $products = Product::where('title', 'like', '%' . $query . '%')->get();
+
+    if ($request->ajax()) {
+        return response()->json(view('partials.search_results', compact('products'))->render());
+    }
+
+    return view('home.index', compact('products'));
+}
+>>>>>>> 2def6010
 }

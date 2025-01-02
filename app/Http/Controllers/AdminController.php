@@ -14,7 +14,10 @@ class AdminController extends Controller
         $data=Category::all();
         return view('admin.category', compact('data'));
     }
+<<<<<<< HEAD
 /*************  ✨ Codeium Command ⭐  *************/
+=======
+>>>>>>> 2def6010
     /**
      * Add a new category to the database.
      *
@@ -26,7 +29,10 @@ class AdminController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
 
+<<<<<<< HEAD
 /******  169a10b8-29aa-4b77-bfcd-78d7c881cf38  *******/
+=======
+>>>>>>> 2def6010
     public function add_category(Request $request){
         $category=new Category;
         $category->category_name=$request->category;
